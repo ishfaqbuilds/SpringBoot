@@ -38,9 +38,9 @@ public class CourseController {
         return service.addCourse(course);
     } 
 
-    @PutMapping
-    public String updateCourse(@RequestBody CourseModels updatedCourse)
-    {
+   @PutMapping("/{id}")
+    public String updateCourse(@PathVariable Long id, @RequestBody CourseModels updatedCourse) {
+        updatedCourse.setId(id);
         return service.updateCourse(updatedCourse);
     }
 
